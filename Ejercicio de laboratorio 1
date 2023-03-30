@@ -1,0 +1,103 @@
+//Ejercicio de laboratorio 1. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2.
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void generar(int arreglo1[], int n);
+void imprimir(int arreglo1[], int n);
+int busqueda_secuencial(int arreglo1[], int n, int num);
+void ordenar(int arreglo1[], int n);
+
+int main() {
+    int opcion;
+    int arreglo1[1000];
+    int num;
+
+    srand(time(NULL)); 
+
+    do {
+        printf("\nMENU\n");
+        printf("1. Generar arreglo\n");
+        printf("2. Imprimir arreglo\n");
+        printf("3. Busqueda secuencial\n");
+        printf("4. Ordenar arreglo\n");
+        printf("0. Salir\n");
+        printf("Elija una opcion: ");
+        scanf("%d", &opcion);
+
+        switch(opcion) {
+            case 1:
+                generar(arreglo1, 1000);
+                printf("\nArreglo generado:\n");
+                break;
+            case 2:
+                imprimir(arreglo1, 1000);
+                break;
+            case 3:
+                printf("Ingrese un numero a buscar: ");
+                scanf("%d", &num);
+                if (busqueda_secuencial(arreglo1, 1000, num) != -1) {
+                    printf("el numero %d esta en el arreglo.\n", num);
+                } else {
+                    printf("\nEl numero %d no esta en el arreglo.\n", num);
+                }
+                break;
+            case 4:
+                ordenar(arreglo1, 1000);
+                break;
+            case 0:
+                printf("Saliendo...\n");
+                printf("Salida exitosa. Hasta la proxima!\n");
+                break;
+            default:
+                printf("Opcion invalida.\n");
+                break;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
+
+void generar(int arreglo1[], int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        arreglo1[i] = rand() % 2000 + 1; 
+    }
+}
+
+void imprimir(int arreglo1[], int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", arreglo1[i]);
+    }
+    printf("\n");
+}
+
+int busqueda_secuencial(int arreglo1[], int n, int num) {
+    int i;
+    for (i = 0; i < n; i++) {
+        if (arreglo1[i] == num) {
+            printf("\nPosicion del numero: %d, por lo tanto, ", i);
+            return i;
+        }
+    }
+    return -1; // Si no se encuentra el numero, retorna -1
+}
+
+void ordenar(int arreglo1[], int n) {
+    int i, j, temp;
+
+    for (i = 1; i < n; i++) {
+        temp = arreglo1[i];
+        j = i - 1;
+
+        while (j >= 0 && arreglo1[j] > temp) {
+            arreglo1[j+1] = arreglo1[j];
+            j = j - 1;
+        }
+
+        arreglo1[j+1] = temp;
+    }
+
+    printf("\nArreglo ordenado correctamente.\n");
+}
