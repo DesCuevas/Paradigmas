@@ -1,0 +1,6 @@
+import random
+
+dividir_aleatorio = lambda x: x / random.randint(1, 20)
+x = int(input("Ingresa un número: \n"))
+resultado = dividir_aleatorio(x)
+print("El resultado es " + str(resultado))
