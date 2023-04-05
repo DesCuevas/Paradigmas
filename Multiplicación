@@ -1,0 +1,5 @@
+multiplica = lambda x, y: x * y
+x = int(input("Ingrese el numero x\n"))
+y = int(input("Ingrese el numero y\n"))
+resultado = multiplica(x,y)
+print("El resultado es " + str(resultado))
