@@ -1,0 +1,4 @@
+suma_15 = lambda x: x + 15
+numero = int(input("Ingrese el numero al que le sumara 15\n"))
+resultado = suma_15(numero)
+print("El resultado es " + str(resultado))
