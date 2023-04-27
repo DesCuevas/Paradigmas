@@ -1,0 +1,117 @@
+public class calculadora {
+    
+    private int entero;
+    private float flotante;
+    private double doble;
+
+    //constructor con valores fijos
+    public calculadora()
+    {
+        entero=22;
+        flotante=8.44f;
+        doble=3.17943;
+    }
+
+    //constructor con valores personalizados
+    public calculadora(int entero, float flotante, double doble)
+    {
+        this.entero=entero;
+        this.flotante=flotante;
+        this.doble=doble;
+    }
+
+    //metodo suma para valores enteros
+    public int sumar(int a, int b)
+    {
+        return a+b;
+    }
+
+    //metodo resta para valores enteros
+
+    public int restar(int a, int b)
+    {
+        return a-b;
+    }
+
+    //metodo suma para valores flotantes
+    public float sumar(float a, float b)
+    {
+        return a+b;
+    }
+
+    //metodo resta para valores flotantes
+
+    public float restar(float a, float b)
+    {
+        return a-b;
+    }
+
+    //metodo suma para valores dobles
+    public double sumar(double a, double b)
+    {
+        return a+b;
+    }
+
+
+    //metodo resta para valores dobles
+
+    public double restar(double a, double b)
+    {
+        return a-b;
+    }
+
+    //metodo para multiplicar enteros con sumas sucesivas
+    public int multiplicar(int a, int b)
+    {
+        int resultado=0;
+        for (int i=0; i<b; i++) {
+            resultado=sumar(resultado, a);
+        }
+        return resultado;
+    }
+
+    //metodo para dividir enteros con restas sucesivas
+    public int dividir(int a, int b)
+    {
+        int resultado=0;
+        while (a>=b) {
+            resultado=sumar(resultado, 1);
+            a=restar(a, b);
+        }
+        return resultado;
+    }
+
+    //metodo de multiplicación para valores flotantes
+    public float multiplicar(float a, float b)
+    {
+        return a*b;
+    }
+
+    //metodo de multiplicación para valores dobles
+
+    public double multiplicar(double a, double b)
+    {
+        return a*b;
+    }
+
+    //metodo de división para valores flotantes
+    public float dividir(float a, float b)
+    {
+        return a/b;
+    }
+
+    //metodo de división para valores dobles
+
+    public double dividir(double a, double b)
+    {
+        return a/b;
+    }
+
+    //metodo para calcular el módulo con valores enteros
+    public int modulo(int a, int b)
+    {
+        int cociente=dividir(a, b);
+        int residuo=restar(a, multiplicar(cociente, b));
+        return residuo;
+    }
+}
