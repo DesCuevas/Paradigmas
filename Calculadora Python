@@ -1,0 +1,84 @@
+class Calculadora:
+
+    def __init__(self, entero=10, flotante=3.14, doble=2.71828):
+        self.entero = entero
+        self.flotante = flotante
+        self.doble = doble
+    
+
+    def suma(self, a, b):
+        return a+b
+    
+
+    def resta(self, a, b):
+        return a-b
+    
+
+    def multipli(self, a, b):
+        return a*b
+    
+
+    def divi(self, a, b):
+        return a/b
+    
+
+    def modulo(self, a, b):
+        cociente=self.dividir(a, b)
+        residuo=self.restar(a, self.multiplicar(cociente, b))
+        return residuo
+    
+
+    def mostrar_valores(self):
+        print("Valores de la calculadora:")
+        print(f"Entero: {self.entero}")
+        print(f"Flotante: {self.flotante}")
+        print(f"Doble: {self.doble}")
+    
+
+    def main():
+        calc=Calculadora()
+        calc.mostrar_valores()
+    
+        enteroA=2
+
+        enteroB=6
+
+        print(f"Suma de dos numeros enteros --> {enteroA} + {enteroB}: {calc.suma(enteroA, enteroB)}")
+
+        print(f"Resta de dos numeros enteros --> {enteroA} - {enteroB}: {calc.resta(enteroA, enteroB)}")
+
+        print(f"Multiplicación de dos numeros enteros --> {enteroA} * {enteroB}: {calc.multipli(enteroA, enteroB)}")
+
+        print(f"División de dos numeros enteros --> {enteroA} / {enteroB}: {calc.divi(enteroA, enteroB)}")
+
+        print(f"Módulo de dos numeros enteros --> {enteroA} % {enteroB}: {calc.modulo(enteroA, enteroB)}")
+
+    
+        flotanteA=8.4
+
+        flotanteB=2.2
+
+        print(f"Suma de flotantes --> {flotanteA} + {flotanteB}: {calc.suma(flotanteA, flotanteB)}")
+
+        print(f"Resta de flotantes --> {flotanteA} - {flotanteB}: {calc.resta(flotanteA, flotanteB)}")
+
+        print(f"Multiplicación de flotantes --> {flotanteA} * {flotanteB}: {calc.multi(flotanteA, flotanteB)}")
+
+        print(f"División de flotantes --> {flotanteA} / {flotanteB}: {calc.divi(flotanteA, flotanteB)}")
+
+    
+        dobleA = 5.943
+
+        dobleB = 1.276
+
+        print(f"Suma de dobles --> {dobleA} + {dobleB}: {calc.suma(dobleA, dobleB)}")
+
+        print(f"Resta de dobles --> {dobleA} - {dobleB}: {calc.resta(dobleA, dobleB)}")
+        
+        print(f"Multiplicación de dobles --> {dobleA} * {dobleB}: {calc.multi(dobleA, dobleB)}")
+        
+        print(f"División de dobles --> {dobleA} / {dobleB}: {calc.divi(dobleA, dobleB)}")
+
+
+    if __name__ == "__main__":
+        main()
