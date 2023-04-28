@@ -1,117 +1,96 @@
-public class calculadora {
+public class Calculadora {
     
     private int entero;
     private float flotante;
     private double doble;
 
-    //constructor con valores fijos
-    public calculadora()
-    {
+    // Constructor con valores fijos
+    public Calculadora() {
         entero=22;
-        flotante=8.44f;
-        doble=3.17943;
+        flotante=8.4f;
+        doble=5.18967;
     }
 
-    //constructor con valores personalizados
-    public calculadora(int entero, float flotante, double doble)
-    {
+    // Constructor con valores personalizados
+    public Calculadora(int entero, float flotante, double doble) {
         this.entero=entero;
         this.flotante=flotante;
         this.doble=doble;
     }
 
-    //metodo suma para valores enteros
-    public int sumar(int a, int b)
-    {
-        return a+b;
+    // Métodos de suma para valores enteros
+    public int suma(int a, int b){
+        return a + b;
     }
 
-    //metodo resta para valores enteros
-
-    public int restar(int a, int b)
-    {
-        return a-b;
+    // Métodos de resta para valores enteros
+    public int resta(int a, int b){
+        return a - b;
     }
 
-    //metodo suma para valores flotantes
-    public float sumar(float a, float b)
-    {
-        return a+b;
+    // Métodos de suma para valores flotantes
+    public float suma(float a, float b){
+        return a + b;
     }
 
-    //metodo resta para valores flotantes
-
-    public float restar(float a, float b)
-    {
-        return a-b;
+    // Métodos de resta para valores flotantes
+    public float resta(float a, float b){
+        return a - b;
     }
 
-    //metodo suma para valores dobles
-    public double sumar(double a, double b)
-    {
-        return a+b;
+    // Métodos de suma para valores dobles
+    public double suma(double a, double b){
+        return a + b;
     }
 
-
-    //metodo resta para valores dobles
-
-    public double restar(double a, double b)
-    {
-        return a-b;
+    // Métodos de resta para valores dobles
+    public double resta(double a, double b){
+        return a - b;
     }
 
-    //metodo para multiplicar enteros con sumas sucesivas
-    public int multiplicar(int a, int b)
-    {
+    // Método para multiplicar enteros con sumas sucesivas
+    public int multi(int a, int b){
         int resultado=0;
         for (int i=0; i<b; i++) {
-            resultado=sumar(resultado, a);
+            resultado=suma(resultado, a);
         }
         return resultado;
     }
 
-    //metodo para dividir enteros con restas sucesivas
-    public int dividir(int a, int b)
-    {
+    // Método para dividir enteros con restas sucesivas
+    public int division(int a, int b){
         int resultado=0;
         while (a>=b) {
-            resultado=sumar(resultado, 1);
-            a=restar(a, b);
+            resultado=suma(resultado, 1);
+            a=resta(a, b);
         }
         return resultado;
     }
 
-    //metodo de multiplicación para valores flotantes
-    public float multiplicar(float a, float b)
-    {
-        return a*b;
+    // Métodos de multiplicación para valores flotantes
+    public float multi(float a, float b){
+        return a * b;
     }
 
-    //metodo de multiplicación para valores dobles
-
-    public double multiplicar(double a, double b)
-    {
-        return a*b;
+    // Métodos de multiplicación para valores dobles
+    public double multi(double a, double b){
+        return a * b;
     }
 
-    //metodo de división para valores flotantes
-    public float dividir(float a, float b)
-    {
-        return a/b;
+    // Métodos de división para valores flotantes
+    public float division(float a, float b){
+        return a / b;
     }
 
-    //metodo de división para valores dobles
-
-    public double dividir(double a, double b)
-    {
-        return a/b;
+    // Métodos de división para valores dobles
+    public double division(double a, double b){
+        return a / b;
     }
 
-    //metodo para calcular el módulo con valores enteros
-    public int modulo(int a, int b)
-    {
-        int cociente=dividir(a, b);
-        int residuo=restar(a, multiplicar(cociente, b));
+    // Método para calcular el módulo con valores enteros
+    public int modulo(int a, int b){
+        int cociente=division(a, b);
+        int residuo=resta(a, multi(cociente, b));
         return residuo;
     }
 }
