@@ -1,20 +1,19 @@
-import Calculadora.java;
-
 public class Main {
-    public static void main(String[] args)
-    {
-    Calculadora calcuA=new Calculadora();
+    public static void main(String[] args) {
 
-    Calculadora calcuB=new Calculadora(10, 3.5f, 2.25);
+        Calculadora calcuA = new Calculadora();
 
-    System.out.println("suma de enteros-> "+calcuA.suma(5, 3));
+        Calculadora calcuB = new Calculadora(22, 8.4f, 5.18);
 
-    System.out.println("resta de flotantes-> "+calcuB.resta(5.2f, 1.1f));
+        System.out.println("suma de numeros tipo enteros -> " + calcuA.suma(5, 3));
 
-    System.out.println("multiplicación de double-> "+calcuA.multiplicacion(2.5, 3.5));
+        System.out.println("resta de numeros tipo flotantes -> " + calcuB.resta(5.2f, 1.1f));
 
-    System.out.println("división de enteros-> "+calcuB.division(15, 3));
+        System.out.println("multiplicación de numeros tipo double -> " + calcuA.multi(2.5, 3.5));
 
-    System.out.println("modulo de enteros-> "+calcuA.modulo(10, 3));
-    } 
+        System.out.println("división de numeros tipo enteros -> " + calcuB.division(15, 3));
+
+        System.out.println("módulo de numeros tipo enteros -> " + calcuA.modulo(10, 3));
+    }
 }
+
