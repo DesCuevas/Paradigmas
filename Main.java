@@ -1,69 +1,67 @@
-/*Ejercicio de laboratorio 4.1. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2.*/ 
-import java.util.Arrays;
+/*Ejercicio de laboratorio 4.2. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2.*/ 
+import java.util.Random;
+import java.util.Scanner;
 
-public class Main{
-
+public class Main {
     public static void main(String[] args) {
-        Arreglos arre = new Arreglos(4);
-        arre.imprimirArreglo();
-        arre.llenarArreglo();
-        System.out.println("");
-        arre.imprimirArreglo();
-        
-        double[] array=arre.devolverArreglo();
-        System.out.println("");
-        
-        for(double x:array)
-        {
-            System.out.println("Elem -> "+x);
-        }
-        
-        double[][] array2=new double[2][];
-        array2[0]=new double[3];
-        array2[1]=new double[5];
-        
-        double maximo = arre.obtenerElementoMaximo();
-        double minimo = arre.obtenerElementoMinimo();
-        
-        System.out.println(" ");
-        
-        System.out.println("a) Elemento máximo: " + maximo);
-        System.out.println("b) Elemento mínimo: " + minimo);
-    
-        double suma = arre.sumarElementos();
-        System.out.println("c) Suma de elementos: " + suma);
-        
-        System.out.println(" ");
-        System.out.println("Generar otro arreglo para sumarlos y calcular el producto punto ");
-        System.out.println("Arreglo generado: ");
-        
-        Arreglos otroArreglo = new Arreglos(4);
-        otroArreglo.llenarArreglo();
-        otroArreglo.imprimirArreglo();
-        
-        double[] arreSuma = arre.sumarArreglo(otroArreglo);
-        double productoPunto = arre.productoPunto(otroArreglo);
-        
-        System.out.println(" ");
+        EjercicioMatrices matriz1 = new EjercicioMatrices();
+        EjercicioMatrices matriz2 = new EjercicioMatrices();
 
-        System.out.println("d) Suma de los arreglos:");
-        for (double elemento : arreSuma) {
-            System.out.println(elemento);
-        }
-        
-        System.out.println(" ");
+        System.out.println("Matriz 1:");
+        matriz1.pedirDimensiones();
+        matriz1.inicializarMatriz();
+        System.out.println("\nContenido de la matriz 1:");
+        matriz1.imprimirMatriz();
+        System.out.println("\nElemento máximo de la matriz 1: " + matriz1.getElementoMaximo());
+        System.out.println("Elemento mínimo de la matriz 1: " + matriz1.getElementoMinimo());
 
-        System.out.println("e) Producto punto: " + productoPunto);
-        
-        System.out.println(" ");
-        
-        System.out.println("f) Ordenar el arreglo inicial: ");
-        arre.ordenarArreglo();
-        arre.imprimirArreglo();
-        
-        System.out.println(" ");
-        
-        double media = arre.calcularMedia();
-        System.out.println("g) Media del arreglo: " + media);
+        System.out.println();
+
+        System.out.println("Matriz 2:");
+        matriz2.pedirDimensiones();
+        matriz2.inicializarMatriz();
+        System.out.println("\nContenido de la matriz 2:");
+        matriz2.imprimirMatriz();
+        System.out.println("\nElemento máximo de la matriz 2: " + matriz2.getElementoMaximo());
+        System.out.println("Elemento mínimo de la matriz 2: " + matriz2.getElementoMinimo());
+
+        System.out.println();
+
+        if (matriz1.puedenSumarse(matriz2)) {
+            System.out.println("\nSuma de matrices:");
+            double[][] matrizSuma = matriz1.sumarMatrices(matriz2);
+            imprimirMatriz(matrizSuma);
+
+            System.out.println();
+        } else {
+            System.out.println("\nLas matrices no pueden sumarse debido a dimensiones incompatibles.");
+        }
+
+        if (matriz1.puedenRestarse(matriz2)) {
+            System.out.println("\nResta de matrices:");
+            double[][] matrizResta = matriz1.restarMatrices(matriz2);
+            imprimirMatriz(matrizResta);
+
+            System.out.println();
+        } else {
+            System.out.println("\nLas matrices no pueden restarse debido a dimensiones incompatibles.");
+        }
+
+        if (matriz1.puedenMultiplicarse(matriz2)) {
+            System.out.println("\nMultiplicación de matrices:");
+            double[][] matrizMultiplicacion = matriz1.multiplicarMatrices(matriz2);
+            imprimirMatriz(matrizMultiplicacion);
+        } else {
+            System.out.println("\nLas matrices no pueden multiplicarse debido a dimensiones incompatibles.");
+        }
+    }
+
+    public static void imprimirMatriz(double[][] matriz) {
+        for (double[] fila : matriz) {
+            for (double elemento : fila) {
+                System.out.print(elemento + " ");
+            }
+            System.out.println();
+        }
     }
 }
