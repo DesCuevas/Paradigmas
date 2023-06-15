@@ -1,8 +1,18 @@
+#Ejercicio de laboratorio 3.3. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2. 
 class Calculadora:
-    def __init__(self, entero=10, flotante=3.14, doble=2.71828):
-        self.entero = entero
-        self.flotante = flotante
-        self.doble = doble
+    def __init__(self, entero1=5, entero2=3, flotante1=2.5, flotante2=1.5, doble1=1.618, doble2=0.618, entero3=0, entero4=0, flotante3=0, flotante4=0, doble3=0, doble4=0):
+        self.entero1 = entero1
+        self.entero2 = entero2
+        self.flotante1 = flotante1
+        self.flotante2 = flotante2
+        self.doble1 = doble1
+        self.doble2 = doble2
+        self.entero3 = entero3
+        self.entero4 = entero4
+        self.flotante3 = flotante3
+        self.flotante4 = flotante4
+        self.doble3 = doble3
+        self.doble4 = doble4
     
     def sumar(self, a, b):
         return a + b
@@ -23,9 +33,9 @@ class Calculadora:
     
     def mostrar_valores(self):
         print("Valores de la calculadora:")
-        print(f"Entero: {self.entero}")
-        print(f"Flotante: {self.flotante}")
-        print(f"Doble: {self.doble}")
+        print(f"Enteros: {self.entero1}, {self.entero2}")
+        print(f"Flotantes: {self.flotante1}, {self.flotante2}")
+        print(f"Dobles: {self.doble1}, {self.doble2}")
     
 def main():
     calc = Calculadora()
@@ -53,5 +63,28 @@ def main():
     print(f"Multiplicación de dobles {doble1} y {doble2}: {calc.multiplicar(doble1, doble2)}")
     print(f"División de dobles {doble1} y {doble2}: {calc.dividir(doble1, doble2)}")
 
+    entero3 = int(input("Ingrese 1 numero entero: "))
+    entero4 = int(input("Ingrese otro numero entero: "))
+    print(f"Suma de enteros {entero3} y {entero4}: {calc.sumar(entero3, entero4)}")
+    print(f"Resta de enteros {entero3} y {entero4}: {calc.restar(entero3, entero4)}")
+    print(f"Multiplicación de enteros {entero3} y {entero4}: {calc.multiplicar(entero3, entero4)}")
+    print(f"División de enteros {entero3} y {entero4}: {calc.dividir(entero3, entero4)}")
+    print(f"Módulo de enteros {entero3} y {entero4}: {calc.modulo(entero3, entero4)}")
+    
+    flotante3 = float(input("Ingrese un numero float: "))
+    flotante4 = float(input("Ingrese otro numero float: "))
+    print(f"Suma de flotantes {flotante3} y {flotante4}: {calc.sumar(flotante3, flotante4)}")
+    print(f"Resta de flotantes {flotante3} y {flotante4}: {calc.restar(flotante3, flotante4)}")
+    print(f"Multiplicación de flotantes {flotante3} y {flotante4}: {calc.multiplicar(flotante3, flotante4)}")
+    print(f"División de flotantes {flotante3} y {flotante4}: {calc.dividir(flotante3, flotante4)}")
+    
+    doble3 = float(input("Ingrese un numero double: "))
+    doble4 = float(input("Ingrese otro numero double: "))
+    print(f"Suma de dobles {doble3} y {doble4}: {calc.sumar(doble3, doble4)}")
+    print(f"Resta de dobles {doble3} y {doble4}: {calc.restar(doble3, doble4)}")
+    print(f"Multiplicación de dobles {doble3} y {doble4}: {calc.multiplicar(doble3, doble4)}")
+    print(f"División de dobles {doble3} y {doble4}: {calc.dividir(doble3, doble4)}")
+
+    
 if __name__ == "__main__":
     main()
