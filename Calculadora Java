@@ -1,96 +1,120 @@
-public class Calculadora {
-    
-    private int entero;
-    private float flotante;
-    private double doble;
+/*Ejercicio de laboratorio 3.2. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2. */
+import java.util.Scanner;
 
-    // Constructor con valores fijos
+class Calculadora {
+    private int entero1;
+    private int entero2;
+    private float flotante1;
+    private float flotante2;
+    private double doble1;
+    private double doble2;
+    private int entero3;
+    private int entero4;
+    private float flotante3;
+    private float flotante4;
+    private double doble3;
+    private double doble4;
+
     public Calculadora() {
-        entero=22;
-        flotante=8.4f;
-        doble=5.18967;
+        this.entero1 = 5;
+        this.entero2 = 3;
+        this.flotante1 = 2.5f;
+        this.flotante2 = 1.5f;
+        this.doble1 = 1.618;
+        this.doble2 = 0.618;
+        this.entero3 = 0;
+        this.entero4 = 0;
+        this.flotante3 = 0;
+        this.flotante4 = 0;
+        this.doble3 = 0;
+        this.doble4 = 0;
     }
 
-    // Constructor con valores personalizados
-    public Calculadora(int entero, float flotante, double doble) {
-        this.entero=entero;
-        this.flotante=flotante;
-        this.doble=doble;
+    public Calculadora(int entero1, int entero2, float flotante1, float flotante2, double doble1, double doble2,
+            int entero3, int entero4, float flotante3, float flotante4, double doble3, double doble4) {
+        this.entero1 = entero1;
+        this.entero2 = entero2;
+        this.flotante1 = flotante1;
+        this.flotante2 = flotante2;
+        this.doble1 = doble1;
+        this.doble2 = doble2;
+        this.entero3 = entero3;
+        this.entero4 = entero4;
+        this.flotante3 = flotante3;
+        this.flotante4 = flotante4;
+        this.doble3 = doble3;
+        this.doble4 = doble4;
     }
-
-    // Métodos de suma para valores enteros
-    public int suma(int a, int b){
+    
+    public int sumar(int a, int b) {
         return a + b;
     }
 
-    // Métodos de resta para valores enteros
-    public int resta(int a, int b){
+    public int restar(int a, int b) {
         return a - b;
     }
-
-    // Métodos de suma para valores flotantes
-    public float suma(float a, float b){
-        return a + b;
-    }
-
-    // Métodos de resta para valores flotantes
-    public float resta(float a, float b){
-        return a - b;
-    }
-
-    // Métodos de suma para valores dobles
-    public double suma(double a, double b){
-        return a + b;
-    }
-
-    // Métodos de resta para valores dobles
-    public double resta(double a, double b){
-        return a - b;
-    }
-
+    
     // Método para multiplicar enteros con sumas sucesivas
-    public int multi(int a, int b){
+    public int multiplicar(int a, int b){
         int resultado=0;
         for (int i=0; i<b; i++) {
-            resultado=suma(resultado, a);
+            resultado=sumar(resultado, a);
         }
         return resultado;
     }
 
     // Método para dividir enteros con restas sucesivas
-    public int division(int a, int b){
+    public int dividir(int a, int b){
         int resultado=0;
         while (a>=b) {
-            resultado=suma(resultado, 1);
-            a=resta(a, b);
+            resultado=sumar(resultado, 1);
+            a=restar(a, b);
         }
         return resultado;
     }
-
-    // Métodos de multiplicación para valores flotantes
-    public float multi(float a, float b){
-        return a * b;
-    }
-
-    // Métodos de multiplicación para valores dobles
-    public double multi(double a, double b){
-        return a * b;
-    }
-
-    // Métodos de división para valores flotantes
-    public float division(float a, float b){
-        return a / b;
-    }
-
-    // Métodos de división para valores dobles
-    public double division(double a, double b){
-        return a / b;
-    }
-
-    // Método para calcular el módulo con valores enteros
-    public int modulo(int a, int b){
-        int cociente=division(a, b);
-        int residuo=resta(a, multi(cociente, b));
+    
+    public int modulo(int a, int b) {
+        int cociente = a / b;
+        int residuo = a - (cociente * b);
         return residuo;
+    }
+    
+    public float sumarf(float m, float n) {
+        return m + n;
+    }
+
+    public float restarf(float m, float n) {
+        return m - n;
+    }
+
+    public float multiplicarf(float m, float n) {
+        return m * n;
+    }
+
+    public float dividirf(float m, float n) {
+        return m / n;
+    }
+    
+    public double sumard(double x, double y) {
+        return x + y;
+    }
+
+    public double restard(double x, double y) {
+        return x - y;
+    }
+
+    public double multiplicard(double x, double y) {
+        return x * y;
+    }
+
+    public double dividird(double x, double y) {
+        return x / y;
+    }
+    
+    public void mostrarValores() {
+        System.out.println("Valores de la calculadora:");
+        System.out.println("Enteros: " + entero1 + ", " + entero2);
+        System.out.println("Flotantes: " + flotante1 + ", " + flotante2);
+        System.out.println("Dobles: " + doble1 + ", " + doble2);
     }
 }
