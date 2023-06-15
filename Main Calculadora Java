@@ -1,19 +1,81 @@
+/*Ejercicio de laboratorio 3.2. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2. */
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        calc.mostrarValores();
 
-        Calculadora calcuA = new Calculadora();
+        int entero1 = 5;
+        int entero2 = 3;
+        System.out.println("\nSuma de enteros " + entero1 + " y " + entero2 + ": " + calc.sumar(entero1, entero2));
+        System.out.println("Resta de enteros " + entero1 + " y " + entero2 + ": " + calc.restar(entero1, entero2));
+        System.out.println(
+                "Multiplicación de enteros con suma sucesiva " + entero1 + " y " + entero2 + ": " + calc.multiplicar(entero1, entero2));
+        System.out.println("División de enteros con resta sucesiva " + entero1 + " y " + entero2 + ": " + calc.dividir(entero1, entero2));
+        System.out.println("Módulo de enteros " + entero1 + " y " + entero2 + ": " + calc.modulo(entero1, entero2));
 
-        Calculadora calcuB = new Calculadora(22, 8.4f, 5.18);
+        float flotante1 = 2.5f;
+        float flotante2 = 1.5f;
+        System.out.println(
+                "\nSuma de flotantes " + flotante1 + " y " + flotante2 + ": " + calc.sumarf(flotante1, flotante2));
+        System.out.println(
+                "Resta de flotantes " + flotante1 + " y " + flotante2 + ": " + calc.restarf(flotante1, flotante2));
+        System.out.println("Multiplicación de flotantes " + flotante1 + " y " + flotante2 + ": "
+                + calc.multiplicarf(flotante1, flotante2));
+        System.out.println(
+                "División de flotantes " + flotante1 + " y " + flotante2 + ": " + calc.dividirf(flotante1, flotante2));
 
-        System.out.println("suma de numeros tipo enteros -> " + calcuA.suma(5, 3));
+        double doble1 = 1.618;
+        double doble2 = 0.618;
+        System.out.println(
+                "\nSuma de dobles " + doble1 + " y " + doble2 + ": " + calc.sumard(doble1, doble2));
+        System.out.println(
+                "Resta de dobles " + doble1 + " y " + doble2 + ": " + calc.restard(doble1, doble2));
+        System.out.println("Multiplicación de dobles " + doble1 + " y " + doble2 + ": "
+                + calc.multiplicard(doble1, doble2));
+        System.out.println(
+                "División de dobles " + doble1 + " y " + doble2 + ": " + calc.dividird(doble1, doble2));
 
-        System.out.println("resta de numeros tipo flotantes -> " + calcuB.resta(5.2f, 1.1f));
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("multiplicación de numeros tipo double -> " + calcuA.multi(2.5, 3.5));
+        System.out.print("\nIngrese 1 numero entero: ");
+        int entero3 = scanner.nextInt();
+        System.out.print("Ingrese otro numero entero: ");
+        int entero4 = scanner.nextInt();
+        System.out.println("\nSuma de enteros " + entero3 + " y " + entero4 + ": " + calc.sumar(entero3, entero4));
+        System.out.println("Resta de enteros " + entero3 + " y " + entero4 + ": " + calc.restar(entero3, entero4));
+        System.out.println(
+                "Multiplicación de enteros con suma sucesiva " + entero3 + " y " + entero4 + ": " + calc.multiplicar(entero3, entero4));
+        System.out.println("División de enteros con resta sucesiva " + entero3 + " y " + entero4 + ": " + calc.dividir(entero3, entero4));
+        System.out.println("Módulo de enteros " + entero3 + " y " + entero4 + ": " + calc.modulo(entero3, entero4));
 
-        System.out.println("división de numeros tipo enteros -> " + calcuB.division(15, 3));
+        System.out.print("\nIngrese un numero float: ");
+        float flotante3 = scanner.nextFloat();
+        System.out.print("Ingrese otro numero float: ");
+        float flotante4 = scanner.nextFloat();
+        System.out.println(
+                "\nSuma de flotantes " + flotante3 + " y " + flotante4 + ": " + calc.sumarf(flotante3, flotante4));
+        System.out.println(
+                "Resta de flotantes " + flotante3 + " y " + flotante4 + ": " + calc.restarf(flotante3, flotante4));
+        System.out.println("Multiplicación de flotantes " + flotante3 + " y " + flotante4 + ": "
+                + calc.multiplicarf(flotante3, flotante4));
+        System.out.println(
+                "División de flotantes " + flotante3 + " y " + flotante4 + ": " + calc.dividirf(flotante3, flotante4));
 
-        System.out.println("módulo de numeros tipo enteros -> " + calcuA.modulo(10, 3));
+        System.out.print("\nIngrese un numero double: ");
+        double doble3 = scanner.nextDouble();
+        System.out.print("Ingrese otro numero double: ");
+        double doble4 = scanner.nextDouble();
+        System.out.println(
+                "\nSuma de dobles " + doble3 + " y " + doble4 + ": " + calc.sumard(doble3, doble4));
+        System.out.println(
+                "Resta de dobles " + doble3 + " y " + doble4 + ": " + calc.restard(doble3, doble4));
+        System.out.println("Multiplicación de dobles " + doble3 + " y " + doble4 + ": "
+                + calc.multiplicard(doble3, doble4));
+        System.out.println(
+                "División de dobles " + doble3 + " y " + doble4 + ": " + calc.dividird(doble3, doble4));
+
+        scanner.close();
     }
 }
-
