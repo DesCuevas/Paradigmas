@@ -1,67 +1,100 @@
-/*Ejercicio de laboratorio 6.1.1. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2.*/ 
+/*Ejercicio de laboratorio 6.1.2. Cuevas Romero Desire, Hernández Méndez Gerardo Antonio. 3BV2.*/
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
+        List<Persona> registros = new ArrayList<>();
 
         while (opcion != 5) {
-            System.out.println("Seleccione una figura:");
-            System.out.println("1. Triángulo");
-            System.out.println("2. Círculo");
-            System.out.println("3. Rectángulo");
-            System.out.println("4. Hexágono");
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Ingresar Estudiante");
+            System.out.println("2. Ingresar Docente");
+            System.out.println("3. Ingresar PAAE");
+            System.out.println("4. Ver registros");
             System.out.println("5. Salir");
             System.out.print("Opción: ");
 
             opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea después de leer la opción
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese la base del triángulo: ");
-                    double baseT = scanner.nextDouble();
-                    System.out.print("Ingrese el lado 2 del triángulo: ");
-                    double lado2 = scanner.nextDouble();
-                    System.out.print("Ingrese el lado 3 del triángulo: ");
-                    double lado3 = scanner.nextDouble();
-                    System.out.print("Ingrese la altura del triángulo: ");
-                    double alturaT = scanner.nextDouble();
+                    System.out.print("Ingrese el ID del estudiante: ");
+                    String idEstudiante = scanner.nextLine();
+                    System.out.print("Ingrese el nombre del estudiante: ");
+                    String nombreEstudiante = scanner.nextLine();
+                    System.out.print("Ingrese el CURP del estudiante: ");
+                    String curpEstudiante = scanner.nextLine();
+                    System.out.print("Ingrese el domicilio del estudiante: ");
+                    String domicilioEstudiante = scanner.nextLine();
 
-                    Triangulo triangulo = new Triangulo(baseT, lado2, lado3, alturaT);
-                    System.out.println("Perímetro del triángulo: " + triangulo.calcularPerimetro());
-                    System.out.println("Área del triángulo: " + triangulo.calcularArea());
+                    registros.add(new Estudiante(idEstudiante, nombreEstudiante, curpEstudiante, domicilioEstudiante));
                     break;
 
                 case 2:
-                    System.out.print("Ingrese el radio del círculo: ");
-                    double radio = scanner.nextDouble();
+                    System.out.print("Ingrese el ID del docente: ");
+                    String idDocente = scanner.nextLine();
+                    System.out.print("Ingrese el nombre del docente: ");
+                    String nombreDocente = scanner.nextLine();
+                    System.out.print("Ingrese el CURP del docente: ");
+                    String curpDocente = scanner.nextLine();
+                    System.out.print("Ingrese el domicilio del docente: ");
+                    String domicilioDocente = scanner.nextLine();
 
-                    Circulo circulo = new Circulo(radio);
-                    System.out.println("Perímetro del círculo: " + circulo.calcularPerimetro());
-                    System.out.println("Área del círculo: " + circulo.calcularArea());
+                    registros.add(new Docente(idDocente, nombreDocente, curpDocente, domicilioDocente));
                     break;
 
                 case 3:
-                    System.out.print("Ingrese la base del rectángulo: ");
-                    double base = scanner.nextDouble();
-                    System.out.print("Ingrese la altura del rectángulo: ");
-                    double altura = scanner.nextDouble();
+                    System.out.print("Ingrese el ID del PAAE: ");
+                    String idPAAE = scanner.nextLine();
+                    System.out.print("Ingrese el nombre del PAAE: ");
+                    String nombrePAAE = scanner.nextLine();
+                    System.out.print("Ingrese el CURP del PAAE: ");
+                    String curpPAAE = scanner.nextLine();
+                    System.out.print("Ingrese el domicilio del PAAE: ");
+                    String domicilioPAAE = scanner.nextLine();
 
-                    Rectangulo rectangulo = new Rectangulo(base, altura);
-                    System.out.println("Perímetro del rectángulo: " + rectangulo.calcularPerimetro());
-                    System.out.println("Área del rectángulo: " + rectangulo.calcularArea());
+                    registros.add(new PAAE(idPAAE, nombrePAAE, curpPAAE, domicilioPAAE));
                     break;
 
                 case 4:
-                    System.out.print("Ingrese el lado del hexágono: ");
-                    double lado = scanner.nextDouble();
-                    System.out.print("Ingrese el apotema del hexágono: ");
-                    double apotema = scanner.nextDouble();
-
-                    Hexagono hexagono = new Hexagono(lado, apotema);
-                    System.out.println("Perímetro del hexágono: " + hexagono.calcularPerimetro());
-                    System.out.println("Área del hexágono: " + hexagono.calcularArea());
+                    System.out.println("Registros ingresados:");
+                    System.out.println("Estudiantes:");
+                    for (Persona persona : registros) {
+                        if (persona instanceof Estudiante) {
+                            System.out.println("ID: " + persona.getID());
+                            System.out.println("Nombre: " + persona.getNombre());
+                            System.out.println("CURP: " + persona.getCURP());
+                            System.out.println("Domicilio: " + persona.getDomicilio());
+                            System.out.println();
+                        }
+                    }
+                    
+                    System.out.println("Docentes:");
+                    for (Persona persona : registros) {
+                        if (persona instanceof Docente) {
+                            System.out.println("ID: " + persona.getID());
+                            System.out.println("Nombre: " + persona.getNombre());
+                            System.out.println("CURP: " + persona.getCURP());
+                            System.out.println("Domicilio: " + persona.getDomicilio());
+                            System.out.println();
+                        }
+                    }
+                    
+                    System.out.println("PAAEs:");
+                    for (Persona persona : registros) {
+                        if (persona instanceof PAAE) {
+                            System.out.println("ID: " + persona.getID());
+                            System.out.println("Nombre: " + persona.getNombre());
+                            System.out.println("CURP: " + persona.getCURP());
+                            System.out.println("Domicilio: " + persona.getDomicilio());
+                            System.out.println();
+                        }
+                    }
                     break;
 
                 case 5:
@@ -72,7 +105,7 @@ public class Main {
                     System.out.println("Opción inválida. Intente nuevamente.");
                     break;
             }
-            
+
             System.out.println();
         }
     }
